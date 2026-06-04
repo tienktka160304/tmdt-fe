@@ -1,0 +1,14 @@
+.slick-slide:has(+ .slick-center),
+.slick-center + .slick-slide {
+  transition:
+    transform 0.7s,
+    opacity 0.3s;
+  opacity: 0.6;
+  transform: scale(0.9);
+}
+
+/* filter: blur(3px); Làm mờ mặc định */
+.slick-center {
+  transform: scale(1); /* Phóng to phần trung tâm */
+  opacity: 1; /* Làm rõ */
+}

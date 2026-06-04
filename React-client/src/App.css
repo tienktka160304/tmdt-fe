@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    position: relative;
+    font-family: "Roboto", sans-serif;
+  }
+  h1 {
+    @apply text-5xl font-bold;
+  }
+  h2 {
+    @apply text-4xl;
+  }
+  h3 {
+    @apply text-3xl;
+  }
+  h4 {
+    @apply text-2xl;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply cursor-pointer rounded border-2 border-primary px-4 py-2 text-xl font-semibold uppercase hover:bg-primary hover:text-white;
+  }
+  .testthietbi {
+    @apply bg-red-200 sm:bg-green-600 md:bg-yellow-400 lg:bg-blue-900 xl:bg-slate-600 2xl:bg-red-900;
+  }
+  .title-pageCate-filter {
+    @apply flex items-center justify-between px-4 text-sm font-semibold text-black sm:text-base;
+  }
+  .gridColTable {
+    @apply grid grid-cols-[100%] sm:grid-cols-[auto_100px_75px_105px] xl:grid-cols-[auto_150px_120px_160px];
+  }
+
+  .btn-arrow {
+    @apply absolute -top-6 z-10 -translate-y-full cursor-pointer bg-primary text-xs text-white duration-300 hover:scale-110 hover:bg-[#108b56] active:scale-95 active:bg-[#002718] active:duration-100 sm:text-base;
+  }
+  .clip {
+    clip-path: polygon(
+      0 0,
+      calc(100% - 20px) 0,
+      100% 20px,
+      100% 100%,
+      20px 100%,
+      0 calc(100% - 20px)
+    );
+  }
+  .clip-hover {
+    &:hover {
+      .hover-child {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+      }
+    }
+  }
+
+  .label {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+  }
+  .custom-prev-arrow {
+    clip-path: polygon(0 0, 60% 0, 100% 100%, 0 100%);
+  }
+
+  .custom-next-arrow {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 40% 100%);
+  }
+
+  @layer utilities {
+    .post-content iframe {
+      @apply mx-auto block h-[450px] w-full max-w-[800px];
+    }
+    .post-content .ql-align-right {
+      @apply text-right;
+    }
+
+    .post-content .ql-align-center {
+      @apply text-center;
+    }
+
+    .post-content .ql-align-left {
+      @apply text-left;
+    }
+
+    .post-content a {
+      @apply text-blue-700 underline;
+    }
+
+    .bg-gradient-btn {
+      @apply bg-gradient-to-b from-[#108b56] to-[#0d6f47];
+    }
+
+    .bg-gradient-footer {
+      @apply bg-gradient-to-r from-secondary to-[#85e69d];
+    }
+
+    .bg-gradient-sales {
+      @apply bg-gradient-to-r from-[#8cc7a8] to-[#b2d18f];
+    }
+    .img_error {
+      background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+      background-repeat: no-repeat;
+      height: 400px;
+      background-position: center;
+      margin-top: 70px;
+      width: 100%;
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
+}
