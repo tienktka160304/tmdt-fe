@@ -9,35 +9,22 @@ export default function Error() {
     document.title = `Error | ${import.meta.env.VITE_WEBSITE_NAME}`;
   }, []);
 
-  let title = "Lỗi !";
-  let message = "Đã xảy ra lỗi";
-
-  if (error?.status) {
-    title = `${error.status}`;
-  }
-
-  if (typeof error?.data === "string") {
-    try {
-      const parsed = JSON.parse(error.data);
-      message = parsed?.message || message;
-    } catch {
-      message = error.data;
-    }
-  } else if (typeof error?.data?.message === "string") {
-    message = error.data.message;
-  } else if (typeof error?.message === "string") {
-    message = error.message;
-  }
+  const message =
+    typeof error?.data === "string"
+      ? error.data
+      : error?.data?.message || error?.message || "Đã xảy ra lỗi";
 
   return (
-    <section className="container">
+    <section className="container text-center">
       <div className="img_error">
-        <h2 className="text-center text-7xl font-bold leading-10">{title}</h2>
+        <h2 className="text-center text-7xl font-bold leading-10">Lỗi !</h2>
       </div>
 
-      <p className="text-center text-4xl font-bold leading-10">{message}</p>
+      <p className="text-center text-4xl font-bold leading-10">
+        {String(message)}
+      </p>
 
-      <div className="pt-10 text-center">
+      <div className="pt-10">
         <BtnAnimation>
           <NavLink
             to="/"
